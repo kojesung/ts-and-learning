@@ -85,14 +85,12 @@ export function logPerson(person: Person) {
     console.log(` - ${person.name}, ${person.age}, ${additionalInformation}`);
 }
 
-export function filterUsers(persons: Person[], criteria: Pick<User, 'age'>): User[] {
+export function filterUsers(persons: Person[], criteria: Partial<User>): User[] {
     return persons.filter(isUser).filter((user) => {
-        const [criteriaKeys] = Object.keys(criteria);
-        const [criteriaValues] = Object.values(criteria);
-        // return criteriaKeys.every((fieldName) => {
-        //     return user[fieldName] === criteria[fieldName];
-        // });
-        return user[criteriaKeys] === criteriaValues;
+        const criteriaKeys = Object.keys(criteria) as (keyof User)[];
+        return criteriaKeys.every((fieldName) => {
+            return user[fieldName] === criteria[fieldName];
+        });
     });
 }
 
