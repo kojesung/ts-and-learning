@@ -34,28 +34,28 @@ export const persons: Person[] = [
     {
         name: 'Max Mustermann',
         age: 25,
-        occupation: 'Chimney sweep'
+        occupation: 'Chimney sweep',
     },
     {
         name: 'Jane Doe',
         age: 32,
-        role: 'Administrator'
+        role: 'Administrator',
     },
     {
         name: 'Kate Müller',
         age: 23,
-        occupation: 'Astronaut'
+        occupation: 'Astronaut',
     },
     {
         name: 'Bruce Willis',
         age: 64,
-        role: 'World saver'
-    }
+        role: 'World saver',
+    },
 ];
 
 export function logPerson(person: Person) {
     let additionalInformation: string;
-    if (person.role) {
+    if ('role' in person) {
         additionalInformation = person.role;
     } else {
         additionalInformation = person.occupation;
