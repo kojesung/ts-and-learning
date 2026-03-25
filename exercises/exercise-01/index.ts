@@ -76,15 +76,13 @@ Exercise:
 
 */
 
-interface UserInfo {
+export interface User {
     name: string;
     age: number;
     occupation: string;
 }
 
-export type User = UserInfo;
-
-export const users: UserInfo[] = [
+export const users: User[] = [
     {
         name: 'Max Mustermann',
         age: 25,
@@ -97,7 +95,7 @@ export const users: UserInfo[] = [
     },
 ];
 
-export function logPerson(user: UserInfo) {
+export function logPerson(user: User) {
     console.log(` - ${user.name}, ${user.age}`);
 }
 
